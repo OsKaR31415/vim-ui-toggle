@@ -18,19 +18,19 @@ All of them are self-descriptive
 
 | part of the UI | action | command |
 | -------------- | ------ | ------- |
-| status line | | |
+| **status line** | | |
 | | show   | `StatuslineShow` |
 | | hide   | `StatuslineHide` |
 | | toggle | `StatuslineToggle` |
-| tab line | | |
+| **tab line** | | |
 | | show   | `TablineShow` |
 | | hide   | `TablineHide` |
 | | toggle | `TablineToggle` |
-| line numbers | | |
+| **line numbers** | | |
 | | show   | `LineNumbersShow` |
 | | hide   | `LineNumbersHide` |
 | | toggle | `LineNumbersToggle` |
-| relative numbering | | |
+| **relative numbering** | | |
 | | on     | `RelativeNumberingOn` |
 | | off (norelativenumbers) | `RelativeNumberingOff` |
 | | toggle | `RelativeNumberingToggle` |
