@@ -109,30 +109,35 @@ command! RelativeNumberingToggle call RelativeNumberingToggle()
 " BACKGROUND
 
 let s:background_color_index = 0
-let s:background_colors_list = ["black", "17", "232", "233", "234", "235"]
+
+if !exists(g:background_colors_list)
+    let g:background_colors_list = ["none", "232", "233", "234", "235"]
+endif
 
 fun! BackgroundColorCycle()
-    if s:background_color_index >= len(s:background_colors_list) - 1
+    if s:background_color_index >= len(g:background_colors_list) - 1
         let s:background_color_index = 0
     else
         let s:background_color_index = s:background_color_index + 1
     endif
-    exec "hi Normal ctermbg=" . s:background_colors_list[s:background_color_index]
+    exec "hi Normal ctermbg=" . g:background_colors_list[s:background_color_index]
 endfun
 command! BackgroundColorCycle call BackgroundColorCycle()
 
 fun! BackgroundColorCycleBack()
     if s:background_color_index == 0
-        let s:background_color_index = len(s:background_colors_list) - 1
+        let s:background_color_index = len(g:background_colors_list) - 1
     else
         let s:background_color_index = s:background_color_index - 1
     endif
-    exec "hi Normal ctermbg=" . s:background_colors_list[s:background_color_index]
+    exec "hi Normal ctermbg=" . g:background_colors_list[s:background_color_index]
 endfun
 command! BackgroundColorCycleBack call BackgroundColorCycleBack()
 
 fun! BackgroundColorReset()
     hi Normal ctermbg=232
+    let s:background_color_index = 0
+    exec "hi Normal ctermbg=" . g:background_colors_list[s:background_color_index]
 endfun
 command! BackgroundColorReset call BackgroundColorReset()
 
