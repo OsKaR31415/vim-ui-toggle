@@ -1,4 +1,6 @@
+
 # vim-ui-toggle
+
 vim plugin to toggle parts of the UI
 
 This plugin defines commands to hide, show or toggle parts of the vim UI, like statusline, tabline etc...
@@ -36,6 +38,10 @@ All of them are self-descriptive
 | | on     | `RelativeNumberingOn` |
 | | off (norelativenumbers) | `RelativeNumberingOff` |
 | | toggle | `RelativeNumberingToggle` |
+| **cursor cross** | | |
+| | on     | `CursorCrossOn` |
+| | off    | `CursorCrossOff` |
+| | toggle | `CursorCrossToggle` |
 | **background color** | | |
 | | next color | `BackgroundColorCycle` |
 | | previous color | `BackgroundColorCycleBack` |
