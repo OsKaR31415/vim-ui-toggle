@@ -108,11 +108,8 @@ command! RelativeNumberingToggle call RelativeNumberingToggle()
 
 " BACKGROUND
 
-let s:background_color_index = 0
+let g:background_color_index = 0
 
-if !exists(g:background_colors_list)
-    let g:background_colors_list = ["none", "232", "233", "234", "235"]
-endif
 
 fun! BackgroundColorCycle()
     if s:background_color_index >= len(g:background_colors_list) - 1
