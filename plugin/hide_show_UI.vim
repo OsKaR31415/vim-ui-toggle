@@ -5,8 +5,7 @@
 
 fun! TablineHide()
     set showtabline=0
-endfun
-command! TablineHide call TablineHide()
+endfun command! TablineHide call TablineHide()
 
 fun! TablineShow()
     set showtabline=1
@@ -60,17 +59,13 @@ command! StatuslineToggle call StatuslineToggle()
 " ┃  ┃┃┗┫┣╸    ┃┗┫┃ ┃┃┃┃┣┻┓┣╸ ┣┳┛┗━┓
 " ┗━╸╹╹ ╹┗━╸   ╹ ╹┗━┛╹ ╹┗━┛┗━╸╹┗╸┗━┛
 
-let s:are_line_numbers_hidden = 0
-
 fun! LineNumbersHide()
-    let s:are_line_numbers_hidden = 1
     set nonumber
     set norelativenumber
 endfun
 command! LineNumbersHide call LineNumbersHide()
 
 fun! LineNumbersShow()
-    let s:are_line_numbers_hidden = 0
     set number
     if s:is_numbering_relative
         set relativenumber
@@ -79,10 +74,10 @@ endfun
 command! LineNumbersShow call LineNumbersShow()
 
 fun! LineNumbersToggle()
-    if s:are_line_numbers_hidden
-        call LineNumbersShow()
-    else
+    if &number
         call LineNumbersHide()
+    else
+        call LineNumbersShow()
     endif
 endfun
 command! LineNumbersToggle call LineNumbersToggle()

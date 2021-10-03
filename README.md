@@ -74,6 +74,7 @@ I personally use these keybindings :
 nnoremap <leader>us :StatuslineToggle<cr>
 nnoremap <leader>ut :TablineToggle<cr>
 nnoremap <leader>ul :LineNumbersToggle<cr>
+nnoremap <leader>uc :CursorCrossToggle<cr>
 " cycle between different colors
 nnoremap <leader>ub :BackgroundColorCycle<cr>
 nnoremap <leader>uB :BackgroundColorReset<cr>
