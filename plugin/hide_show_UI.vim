@@ -1,5 +1,7 @@
 
-" TABLINE
+" ╺┳╸┏━┓┏┓ ╻  ╻┏┓╻┏━╸
+"  ┃ ┣━┫┣┻┓┃  ┃┃┗┫┣╸
+"  ╹ ╹ ╹┗━┛┗━╸╹╹ ╹┗━╸
 
 fun! TablineHide()
     set showtabline=0
@@ -20,7 +22,9 @@ fun! TablineToggle()
 endfun
 command! TablineToggle call TablineToggle()
 
-" STATUSLINE
+" ┏━┓╺┳╸┏━┓╺┳╸╻ ╻┏━┓╻  ╻┏┓╻┏━╸
+" ┗━┓ ┃ ┣━┫ ┃ ┃ ┃┗━┓┃  ┃┃┗┫┣╸
+" ┗━┛ ╹ ╹ ╹ ╹ ┗━┛┗━┛┗━╸╹╹ ╹┗━╸
 
 let s:is_statusline_hidden = 0
 
@@ -52,7 +56,9 @@ endfun
 command! StatuslineToggle call StatuslineToggle()
 
 
-" LINE NUMBERS
+" ╻  ╻┏┓╻┏━╸   ┏┓╻╻ ╻┏┳┓┏┓ ┏━╸┏━┓┏━┓
+" ┃  ┃┃┗┫┣╸    ┃┗┫┃ ┃┃┃┃┣┻┓┣╸ ┣┳┛┗━┓
+" ┗━╸╹╹ ╹┗━╸   ╹ ╹┗━┛╹ ╹┗━┛┗━╸╹┗╸┗━┛
 
 let s:are_line_numbers_hidden = 0
 
@@ -81,7 +87,9 @@ fun! LineNumbersToggle()
 endfun
 command! LineNumbersToggle call LineNumbersToggle()
 
-" RELATIVE NUMBERING
+" ┏━┓┏━╸╻  ┏━┓╺┳╸╻╻ ╻┏━╸   ┏┓╻╻ ╻┏┳┓┏┓ ┏━╸┏━┓╻┏┓╻┏━╸
+" ┣┳┛┣╸ ┃  ┣━┫ ┃ ┃┃┏┛┣╸    ┃┗┫┃ ┃┃┃┃┣┻┓┣╸ ┣┳┛┃┃┗┫┃╺┓
+" ╹┗╸┗━╸┗━╸╹ ╹ ╹ ╹┗┛ ┗━╸   ╹ ╹┗━┛╹ ╹┗━┛┗━╸╹┗╸╹╹ ╹┗━┛
 
 let s:is_numbering_relative = 1
 
@@ -106,7 +114,40 @@ fun! RelativeNumberingToggle()
 endfun
 command! RelativeNumberingToggle call RelativeNumberingToggle()
 
-" BACKGROUND
+" ┏━╸╻ ╻┏━┓┏━┓┏━┓┏━┓   ┏━╸┏━┓┏━┓┏━┓┏━┓
+" ┃  ┃ ┃┣┳┛┗━┓┃ ┃┣┳┛   ┃  ┣┳┛┃ ┃┗━┓┗━┓
+" ┗━╸┗━┛╹┗╸┗━┛┗━┛╹┗╸   ┗━╸╹┗╸┗━┛┗━┛┗━┛
+
+fun! CursorCrossOn()
+    set cursorcolumn
+    set cursorline
+endfun
+command! CursorCrossOn call CursorCrossOn()
+
+fun! CursorCrossOff()
+    set nocursorcolumn
+    set nocursorline
+endfun
+command! CursorCrossOff call CursorCrossOff()
+
+fun! CursorCrossToggle()
+    if &cursorcolumn
+        set nocursorcolumn
+    else
+        set cursorcolumn
+    endif
+    if &cursorline
+        set nocursorline
+    else
+        set cursorline
+    endif
+endfun
+command! CursorCrossToggle call CursorCrossToggle()
+
+
+" ┏┓ ┏━┓┏━╸╻┏ ┏━╸┏━┓┏━┓╻ ╻┏┓╻╺┳┓
+" ┣┻┓┣━┫┃  ┣┻┓┃╺┓┣┳┛┃ ┃┃ ┃┃┗┫ ┃┃
+" ┗━┛╹ ╹┗━╸╹ ╹┗━┛╹┗╸┗━┛┗━┛╹ ╹╺┻┛
 
 let g:background_color_index = 0
 
