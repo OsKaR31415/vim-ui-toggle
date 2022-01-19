@@ -140,12 +140,43 @@ endfun
 command! CursorCrossToggle call CursorCrossToggle()
 
 
+" ┏━┓╻┏━╸┏┓╻   ┏━╸┏━┓╻  ╻ ╻┏┳┓┏┓╻
+" ┗━┓┃┃╺┓┃┗┫   ┃  ┃ ┃┃  ┃ ┃┃┃┃┃┗┫
+" ┗━┛╹┗━┛╹ ╹   ┗━╸┗━┛┗━╸┗━┛╹ ╹╹ ╹
+
+fun! SignColumnOn()
+    set signcolumn=yes
+endfun
+command! SignColumnOn call SignColumnOn()
+
+fun! SignColumnOff()
+    set signcolumn=no
+endfun
+command! SignColumnOff call SignColumnOff()
+
+fun! SignColumnNumber()
+    set signcolumn=number
+endfun
+command! SignColumnNumber call SignColumnNumber()
+
+function! SignColumnCycle()
+    if &signcolumn == "no"
+        set signcolumn=yes
+    elseif &signcolumn == "yes"
+        set signcolumn=number
+    else
+        set signcolumn=no
+    endif
+endfunction
+command! SignColumnCycle call SignColumnCycle()
+
+
+
 " ┏┓ ┏━┓┏━╸╻┏ ┏━╸┏━┓┏━┓╻ ╻┏┓╻╺┳┓
 " ┣┻┓┣━┫┃  ┣┻┓┃╺┓┣┳┛┃ ┃┃ ┃┃┗┫ ┃┃
 " ┗━┛╹ ╹┗━╸╹ ╹┗━┛╹┗╸┗━┛┗━┛╹ ╹╺┻┛
 
 let g:background_color_index = 0
-
 
 fun! BackgroundColorCycle()
     if s:background_color_index >= len(g:background_colors_list) - 1

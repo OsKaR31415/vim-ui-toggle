@@ -11,9 +11,9 @@ If you have any idea of a new part of the UI i could integrate in this plugin, p
 
 # why doing that ?
 
-I feel like i often want to win a litte bit of space on a window that is already little (like the quickfix list after make).
-So having the hability to quickly toggle parts of the UI is quite important.
-Also, when all the parts of the UI are hidden, it is kind of what other editors call "Zen mode" or "focus mode" : you only see your code. The plugin "goyo.vim" does that, but it also "zooms" on one single file (others are hidden and it is put in full-screen), while just hiding parts of the UI keeps the windows-structure.
+I feel like i often want to win a little bit of space on a window that is already small (like the quickfix list after make).
+So having the ability to quickly toggle parts of the UI is quite important.
+Also, when all the parts of the UI are hidden, it is kind of what other editors call "Zen mode" or "focus mode" : you only see your code. The plugin [goyo.vim](https://github.com/junegunn/goyo.vim) does that, but it also "zooms" on one single file (others are hidden and it is put in full-screen), while just hiding parts of the UI keeps the windows-structure.
 
 # Available commands
 
@@ -42,6 +42,11 @@ All of them are self-descriptive
 | | on     | `CursorCrossOn` |
 | | off    | `CursorCrossOff` |
 | | toggle | `CursorCrossToggle` |
+| **sign column** | | |
+| | on     | SignColumnOn |
+| | off    | SignColumnOff |
+| | number | SignColumnNumber |
+| | cycle  | SignColumnCycle |
 | **background color** | | |
 | | next color | `BackgroundColorCycle` |
 | | previous color | `BackgroundColorCycleBack` |
@@ -71,17 +76,27 @@ Since i do not use graphical versions of vim, i do not plan to extend that to su
 I personally use these keybindings :
 
 ```vim
-nnoremap <leader>us :StatuslineToggle<cr>
-nnoremap <leader>ut :TablineToggle<cr>
-nnoremap <leader>ul :LineNumbersToggle<cr>
-nnoremap <leader>uc :CursorCrossToggle<cr>
+Plug 'OsKaR31415/vim-ui-toggle'
+let g:background_colors_list = ["none", "234", "235", "233", "232"]
+" UI hide and show
+nnoremap <silent> <leader>us :StatuslineToggle<cr>
+nnoremap <silent> <leader>ut :TablineToggle<cr>
+nnoremap <silent> <leader>ul :LineNumbersToggle<cr>
+nnoremap <silent> <leader>un :RelativeNumberingToggle<cr>
+nnoremap <silent> <leader>uc :CursorCrossToggle<cr>
+nnoremap <silent> <leader>ug :SignColumnToggle<cr>
 " cycle between different colors
-nnoremap <leader>ub :BackgroundColorCycle<cr>
-nnoremap <leader>uB :BackgroundColorReset<cr>
+nnoremap <silent> <leader>ub :BackgroundColorCycle<cr>
+nnoremap <silent> <leader>uB :BackgroundColorReset<cr>
 " toggle all of them
-nnoremap <leader>uu :UItoggle<cr>
-nnoremap <leader>ur :UIreset<cr>
-nnoremap <leader>un :RelativeNumberingToggle<cr>
+nnoremap <silent> <leader>uu :UItoggle<cr>
+nnoremap <silent> <leader>uq :UItoggle<cr>
+nnoremap <silent> <leader>ur :UIreset<cr>
 ```
 
 They are not set by default, so you have to copy them in your `.vimrc`
+
+Also, i use the [vim-arpeggio](https://kana/vim-arpeggio) plugin, so i can press the keys at the same time (ex: `<leader>ul` at the same time, not in a sequence).
+
+
+
